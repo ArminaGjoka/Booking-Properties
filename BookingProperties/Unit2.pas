@@ -1,0 +1,151 @@
+unit Unit2;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Samples.Spin,
+  Vcl.Imaging.pngimage;
+
+type
+  TForm2 = class(TForm)
+    ComboBoxCityR: TComboBox;
+    ComboBoxPropertyTypeR: TComboBox;
+    SpinEditMaxPriceRent: TSpinEdit;
+    SpinEditNrofRoomsR: TSpinEdit;
+    lblPropertyAlbania: TLabel;
+    btnSubmit: TButton;
+    Button1: TButton;
+    Button2: TButton;
+    ComboBoxPropertyTypeS: TComboBox;
+    ComboBoxCityS: TComboBox;
+    Button3: TButton;
+    SpinEditNrofRoomsS: TSpinEdit;
+    CheckBoxRent: TCheckBox;
+    CheckBoxSale: TCheckBox;
+    btnMaxPriceSALE: TButton;
+    SpinEditMaxPriceSale: TSpinEdit;
+    btnNewSearch: TButton;
+    Image1: TImage;
+    Image2: TImage;
+
+    procedure btnSubmitClick(Sender: TObject);
+    procedure btnNewSearchClick(Sender: TObject);
+
+  private
+    { Private declarations }
+
+  public
+    { Public declarations }
+
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+uses Unit3, Unit1;
+
+procedure TForm2.btnNewSearchClick(Sender: TObject);
+begin
+
+  ComboBoxCityR.Text := '';
+  ComboBoxPropertyTypeR.Text := '';
+  SpinEditMaxPriceRent.Value := 0;
+  SpinEditNrofRoomsR.Value := 0;
+  CheckBoxRent.Checked := False;
+  CheckBoxSale.Checked := False;
+  ComboBoxCityS.Text := '';
+  ComboBoxPropertyTypeS.Text := '';
+  SpinEditMaxPriceSale.Value := 0;
+  SpinEditNrofRoomsS.Value := 0;
+
+end;
+
+procedure TForm2.btnSubmitClick(Sender: TObject);
+var
+  SelectedCity, SelectedProperty, SaleCity, SaleProperty: string;
+  MaxPriceR, MaxPriceS, NumRooms, SaleNumRooms: Integer;
+  Rent, Sale: Boolean;
+begin
+  try
+    Screen.Cursor := crHourGlass;
+
+    SelectedCity := ComboBoxCityR.Text;
+    SelectedProperty := ComboBoxPropertyTypeR.Text;
+
+    SaleCity := ComboBoxCityS.Text;
+    SaleProperty := ComboBoxPropertyTypeS.Text;
+
+    MaxPriceR := SpinEditMaxPriceRent.Value;
+    MaxPriceS := SpinEditMaxPriceSale.Value;
+    NumRooms := SpinEditNrofRoomsR.Value;
+    SaleNumRooms := SpinEditNrofRoomsS.Value;
+    Rent := CheckBoxRent.Checked;
+    Sale := CheckBoxSale.Checked;
+
+    DataModule3.ADOQuery1.Close;
+
+    DataModule3.ADOQuery1.SQL.Text := 'SELECT * FROM Properties ' +
+      'WHERE [City] = :City AND [Property_Type] = :PropertyType ' +
+      'AND [NumRooms] = :NumRooms';
+
+    DataModule3.ADOQuery1.Parameters.ParamByName('City').Value := SelectedCity;
+    DataModule3.ADOQuery1.Parameters.ParamByName('PropertyType').Value :=
+      SelectedProperty;
+    DataModule3.ADOQuery1.Parameters.ParamByName('NumRooms').Value := NumRooms;
+
+    if Rent then
+    begin
+
+      DataModule3.ADOQuery1.SQL.Add('AND [Rent] = True');
+      DataModule3.ADOQuery1.SQL.Add('AND [PriceforRent] <= :MaxPriceR');
+      DataModule3.ADOQuery1.Parameters.ParamByName('MaxPriceR').Value :=
+        MaxPriceR;
+    end
+    else if Sale then
+    begin
+      DataModule3.ADOQuery1.SQL.Text := 'SELECT * FROM Properties ' +
+        'WHERE [City] = :City AND [Property_Type] = :PropertyType ' +
+        'AND [NumRooms] = :NumRooms';
+
+      DataModule3.ADOQuery1.Parameters.ParamByName('City').Value := SaleCity;
+      DataModule3.ADOQuery1.Parameters.ParamByName('PropertyType').Value :=
+        SaleProperty;
+      DataModule3.ADOQuery1.Parameters.ParamByName('NumRooms').Value :=
+        SaleNumRooms;
+      DataModule3.ADOQuery1.SQL.Add('AND [Sale] = True');
+      DataModule3.ADOQuery1.SQL.Add('AND [PriceforSale] <= :MaxPriceS');
+      DataModule3.ADOQuery1.Parameters.ParamByName('MaxPriceS').Value :=
+        MaxPriceS;
+    end;
+
+    DataModule3.ADOQuery1.Open;
+
+    if not Assigned(Form1) then
+      Form1 := TForm1.Create(Application);
+
+    Form1.DBGrid1.DataSource := DataModule3.DataSource1;
+    if Rent then
+    begin
+      Form1.DBGrid1.Columns[4].Visible := False;
+    end
+    else if Sale then
+    begin
+      Form1.DBGrid1.Columns[3].Visible := False;
+    end;
+    Form1.ShowModal;
+
+  finally
+    Screen.Cursor := crDefault;
+    FreeAndNil(Form1);
+  end;
+
+end;
+
+end.

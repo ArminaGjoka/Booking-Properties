@@ -1,0 +1,218 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 379
+  ClientWidth = 817
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object lblPropertyAlbania: TLabel
+    Left = 236
+    Top = 46
+    Width = 219
+    Height = 21
+    Caption = 'Find your Property in Albania'
+    Color = clFuchsia
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clFuchsia
+    Font.Height = -17
+    Font.Name = 'Playball'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object btnPropertyType: TButton
+    Left = 20
+    Top = 134
+    Width = 89
+    Height = 25
+    Caption = 'Property Type'
+    TabOrder = 0
+  end
+  object btnCity: TButton
+    Left = 123
+    Top = 134
+    Width = 92
+    Height = 25
+    Caption = 'City'
+    TabOrder = 1
+  end
+  object btnMaxPriceRENT: TButton
+    Left = 323
+    Top = 134
+    Width = 75
+    Height = 25
+    Caption = 'Max Price'
+    TabOrder = 2
+  end
+  object btnNrRooms: TButton
+    Left = 232
+    Top = 134
+    Width = 75
+    Height = 25
+    Caption = 'Nr of Rooms'
+    TabOrder = 3
+  end
+  object ComboBoxPropertyTypeR: TComboBox
+    Left = 20
+    Top = 159
+    Width = 89
+    Height = 23
+    TabOrder = 4
+    Items.Strings = (
+      'Apartment'
+      'Villa'
+      'Office'
+      'Shop'
+      'Studio'
+      'Restaurant'
+      'Bussiness')
+  end
+  object ComboBoxCityR: TComboBox
+    Left = 123
+    Top = 159
+    Width = 92
+    Height = 23
+    TabOrder = 5
+    Items.Strings = (
+      'Tirana'
+      'Durres'
+      'Vlora'
+      'Shkoder'
+      'Kruje'
+      'Saranda'
+      'Permet')
+  end
+  object SpinEditMaxPrice: TSpinEdit
+    Left = 323
+    Top = 159
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 6
+    Value = 0
+  end
+  object SpinEditNrofRoomsR: TSpinEdit
+    Left = 232
+    Top = 161
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 7
+    Value = 0
+  end
+  object btnSubmit: TButton
+    Left = 360
+    Top = 342
+    Width = 75
+    Height = 25
+    Caption = 'Submit'
+    TabOrder = 8
+    OnClick = btnSubmitClick
+  end
+  object Button1: TButton
+    Left = 20
+    Top = 230
+    Width = 89
+    Height = 25
+    Caption = 'Property Type'
+    TabOrder = 9
+  end
+  object Button2: TButton
+    Left = 123
+    Top = 230
+    Width = 92
+    Height = 25
+    Caption = 'City'
+    TabOrder = 10
+  end
+  object ComboBoxPropertyTypeS: TComboBox
+    Left = 20
+    Top = 255
+    Width = 89
+    Height = 23
+    TabOrder = 11
+    Items.Strings = (
+      'Apartment'
+      'Villa'
+      'Office'
+      'Shop'
+      'Studio'
+      'Restaurant'
+      'Bussiness')
+  end
+  object ComboBoxCityS: TComboBox
+    Left = 123
+    Top = 255
+    Width = 92
+    Height = 23
+    TabOrder = 12
+    Items.Strings = (
+      'Tirana'
+      'Durres'
+      'Vlora'
+      'Shkoder'
+      'Kruje'
+      'Saranda'
+      'Permet')
+  end
+  object Button3: TButton
+    Left = 230
+    Top = 230
+    Width = 75
+    Height = 25
+    Caption = 'Nr of Rooms'
+    TabOrder = 13
+  end
+  object SpinEditNrofRoomsS: TSpinEdit
+    Left = 230
+    Top = 255
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 14
+    Value = 0
+  end
+  object CheckBoxRent: TCheckBox
+    Left = 20
+    Top = 98
+    Width = 97
+    Height = 17
+    Caption = 'For Rent'
+    TabOrder = 15
+  end
+  object CheckBoxSale: TCheckBox
+    Left = 20
+    Top = 204
+    Width = 97
+    Height = 17
+    Caption = 'For Sale'
+    TabOrder = 16
+  end
+  object btnMaxPriceSALE: TButton
+    Left = 317
+    Top = 230
+    Width = 75
+    Height = 25
+    Caption = 'Max Price'
+    TabOrder = 17
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 317
+    Top = 255
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 18
+    Value = 0
+  end
+end

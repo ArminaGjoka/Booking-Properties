@@ -1,0 +1,233 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 379
+  ClientWidth = 817
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object lblPropertyAlbania: TLabel
+    Left = 236
+    Top = 46
+    Width = 219
+    Height = 21
+    Caption = 'Find your Property in Albania'
+    Color = clFuchsia
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clFuchsia
+    Font.Height = -17
+    Font.Name = 'Playball'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object btnPropertyType: TButton
+    Left = 20
+    Top = 134
+    Width = 89
+    Height = 25
+    Caption = 'Property Type'
+    TabOrder = 0
+  end
+  object btnCity: TButton
+    Left = 127
+    Top = 134
+    Width = 92
+    Height = 25
+    Caption = 'City'
+    TabOrder = 1
+  end
+  object btnMinPrice: TButton
+    Left = 236
+    Top = 134
+    Width = 75
+    Height = 25
+    Caption = 'Min Price'
+    TabOrder = 2
+  end
+  object btnMaxPrice: TButton
+    Left = 331
+    Top = 134
+    Width = 75
+    Height = 25
+    Caption = 'Max Price'
+    TabOrder = 3
+  end
+  object btnNrRooms: TButton
+    Left = 420
+    Top = 134
+    Width = 75
+    Height = 25
+    Caption = 'Nr of Rooms'
+    TabOrder = 4
+  end
+  object ComboBoxPropertyTypeR: TComboBox
+    Left = 20
+    Top = 159
+    Width = 89
+    Height = 23
+    TabOrder = 5
+    Items.Strings = (
+      'Apartment'
+      'Villa'
+      'Office'
+      'Shop'
+      'Studio'
+      'Restaurant'
+      'Bussiness')
+  end
+  object ComboBoxCityR: TComboBox
+    Left = 127
+    Top = 159
+    Width = 92
+    Height = 23
+    TabOrder = 6
+    Items.Strings = (
+      'Tirana'
+      'Durres'
+      'Vlora'
+      'Shkoder'
+      'Kruje'
+      'Saranda'
+      'Permet')
+  end
+  object SpinEditMinPrice: TSpinEdit
+    Left = 236
+    Top = 159
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 7
+    Value = 0
+  end
+  object SpinEditMaxPrice: TSpinEdit
+    Left = 331
+    Top = 159
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 8
+    Value = 0
+  end
+  object SpinEditNrofRoomsR: TSpinEdit
+    Left = 420
+    Top = 159
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 9
+    Value = 0
+  end
+  object btnSubmit: TButton
+    Left = 360
+    Top = 342
+    Width = 75
+    Height = 25
+    Caption = 'Submit'
+    TabOrder = 10
+    OnClick = btnSubmitClick
+  end
+  object btnPriceforSale: TButton
+    Left = 336
+    Top = 230
+    Width = 73
+    Height = 25
+    Caption = 'Price '
+    TabOrder = 11
+  end
+  object EditPriceSale: TEdit
+    Left = 336
+    Top = 261
+    Width = 73
+    Height = 23
+    TabOrder = 12
+  end
+  object Button1: TButton
+    Left = 20
+    Top = 230
+    Width = 89
+    Height = 25
+    Caption = 'Property Type'
+    TabOrder = 13
+  end
+  object Button2: TButton
+    Left = 127
+    Top = 230
+    Width = 92
+    Height = 25
+    Caption = 'City'
+    TabOrder = 14
+  end
+  object ComboBoxPropertyTypeS: TComboBox
+    Left = 20
+    Top = 255
+    Width = 89
+    Height = 23
+    TabOrder = 15
+    Items.Strings = (
+      'Apartment'
+      'Villa'
+      'Office'
+      'Shop'
+      'Studio'
+      'Restaurant'
+      'Bussiness')
+  end
+  object ComboBoxCityS: TComboBox
+    Left = 127
+    Top = 255
+    Width = 92
+    Height = 23
+    TabOrder = 16
+    Items.Strings = (
+      'Tirana'
+      'Durres'
+      'Vlora'
+      'Shkoder'
+      'Kruje'
+      'Saranda'
+      'Permet')
+  end
+  object Button3: TButton
+    Left = 234
+    Top = 230
+    Width = 75
+    Height = 25
+    Caption = 'Nr of Rooms'
+    TabOrder = 17
+  end
+  object SpinEditNrofRoomsS: TSpinEdit
+    Left = 234
+    Top = 255
+    Width = 75
+    Height = 24
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 18
+    Value = 0
+  end
+  object CheckBoxRent: TCheckBox
+    Left = 20
+    Top = 96
+    Width = 97
+    Height = 17
+    Caption = 'For Rent'
+    TabOrder = 19
+  end
+  object CheckBoxSale: TCheckBox
+    Left = 20
+    Top = 204
+    Width = 97
+    Height = 17
+    Caption = 'For Sale'
+    TabOrder = 20
+  end
+end
